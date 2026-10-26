@@ -1,0 +1,19 @@
+package views.commands.adminCommands;
+
+import controllers.Controller;
+import users.Admin;
+import views.commands.Command;
+
+public class RemovePlayerFromTeamCommand extends Command {
+    private Admin admin;
+    public RemovePlayerFromTeamCommand(Controller controller, Admin admin){
+        super("team-remove [Player-DNI][Team-name]");
+        this.controller = controller;
+        this.admin = admin;
+    }
+
+    public void execute(){
+        this.controller.removeFromTeam(this.commandArgument, this.admin);
+    }
+
+}
